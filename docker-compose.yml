@@ -19,8 +19,8 @@ services:
     image: postgres:12-alpine
     environment:
       POSTGRES_PASSWORD: toortoor
-      POSTGRES_USER: admin
-      POSTGRES_DB: marketplace
+      POSTGRES_USER: root
+      POSTGRES_DB: geekgarage
       TZ: Europe/Paris
       PGTZ: Europe/Paris
     ports:
