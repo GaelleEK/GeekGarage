@@ -1,0 +1,29 @@
+version: '3.1'
+services:
+
+  web:
+    image: nginx:alpine
+    ports:
+      - 8000:80
+    volumes:
+      - .:/var/www:delegated
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+
+  php:
+    build:
+      context: ./tools/docker/php
+    volumes:
+      - .:/var/www:delegated
+
+  db:
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_PASSWORD: toortoor
+      POSTGRES_USER: admin
+      POSTGRES_DB: marketplace
+      TZ: Europe/Paris
+      PGTZ: Europe/Paris
+    ports:
+      - 5432:5432 # On expose le port pour pouvoir inspecter la base pendant la phase de développement
+    volumes:
+      - ./var:/var/www/var
