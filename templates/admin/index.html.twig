@@ -1,0 +1,12 @@
+{%  extends 'base.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+    {% for center in centers %}
+        {{ center.city }},{{ center.adress }}
+        <a href="{{ path('admin_update', {id: center.id}) }}" class="btn">Editer</a>
+        <a href="{{ path('admin_delete', {id: center.id}) }}" class="btn">Supprimer</a></br>
+    {% endfor %}
+
+{% endblock %}
