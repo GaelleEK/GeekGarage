@@ -1,12 +1,30 @@
-{%  extends 'base.html.twig' %}
+{%  extends './base.html.twig' %}
 
 {% block title %}Administration{% endblock %}
 
 {% block body %}
-    {% for center in centers %}
-        {{ center.city }},{{ center.adress }}
-        <a href="{{ path('admin_update', {id: center.id}) }}" class="btn">Editer</a>
-        <a href="{{ path('admin_delete', {id: center.id}) }}" class="btn">Supprimer</a></br>
-    {% endfor %}
 
+    {% include './block/_adminNavbar.html.twig' %}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Ville</th>
+                <th>Adresse</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for center in centers %}
+            <tr>
+                <td>{{ center.city }}</td>
+                <td>{{ center.address }}</td>
+                <td>
+                    <a href="{{ path('admin_update', {id: center.id}) }}" class="btn btn-primary">Editer</a>
+                    <a href="{{ path('admin_delete', {id: center.id}) }}" class="btn btn-danger">Supprimer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

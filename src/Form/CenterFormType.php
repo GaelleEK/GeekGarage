@@ -15,12 +15,30 @@ class CenterFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('lat', numberType::class)
-            ->add('lon', numberType::class)
-            ->add('adress', textType::class)
-            ->add('city', textType::class)
-            ->add('submit', submitType::class)
-        ;
+
+            ->add('address', textType::class, [
+                'label' => 'Adresse',
+                'attr' => ['class' => 'form-control'],
+                'label_attr' => ['class' => 'form-label mt-2']])
+
+            ->add('city', textType::class, [
+                'label' => 'Ville',
+                'attr' => ['class' => 'form-control'],
+                'label_attr' => ['class' => 'form-label mt-2']])
+
+            ->add('lat', numberType::class, [
+                'label' => 'Latitude',
+                'attr' => ['class' => 'form-control'],
+                'label_attr' => ['class' => 'form-label mt-2']])
+
+            ->add('lon', numberType::class, [
+                'label' => 'Longitude',
+                'attr' => ['class' => 'form-control'],
+                'label_attr' => ['class' => 'form-label mt-2']])
+
+            ->add('submit', submitType::class, [
+                'label' => 'Créer',
+                'attr' => ['class' => 'btn btn-primary m-3']]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

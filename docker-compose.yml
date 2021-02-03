@@ -1,5 +1,11 @@
 version: '3.1'
 services:
+  mailhog:
+    container_name: mailhog_Geek_Garage
+    image: mailhog/mailhog:v1.0.0
+    ports:
+      - "1025:1025"
+      - "8025:8025"
 
   web:
     image: nginx:alpine
@@ -27,3 +33,5 @@ services:
       - 5432:5432 # On expose le port pour pouvoir inspecter la base pendant la phase de développement
     volumes:
       - ./var:/var/www/var
+
+

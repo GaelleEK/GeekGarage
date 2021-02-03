@@ -19,10 +19,9 @@ class AdminController extends AbstractController
     */
    public function index(CenterRepository $centerRepository): Response
    {
-       $centers = $centerRepository->findAll();
 
        return $this->render('admin/index.html.twig', [
-            'centers'=>$centers
+            'centers'=> $centerRepository->findAll()
            ]);
    }
 

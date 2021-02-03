@@ -1,4 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Geek Garage{% endblock %}
 
+
+{% block body %}
+
+    {% include 'block/_navbar.html.twig' %}
+
+    {% include 'block/_header.html.twig' %}
+
+    {% include 'block/_map.html.twig' %}
+
+    {% include 'block/_footer.html.twig' %}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('script/map_home.js') }}"></script>
+{% endblock %}

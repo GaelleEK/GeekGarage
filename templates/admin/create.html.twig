@@ -3,5 +3,33 @@
 {% block title %}Administration{% endblock %}
 
 {% block body %}
-    {{ form(form) }}
+    {% include './block/_adminNavbar.html.twig' %}
+
+
+    <div class="container">
+        <h2>Nouveau centre</h2>
+
+        {{ form_start(form) }}
+
+            {{ form_row(form.address) }}
+
+            {{ form_row(form.city) }}
+
+            {{ form_row(form.lat) }}
+
+            {{ form_row(form.lon) }}
+
+            {{ form_row(form.submit) }}
+
+        {{ form_end(form) }}
+
+    </div>
+
+    {% include './block/_map.html.twig' %}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('script/map_admin_create.js') }}"></script>
 {% endblock %}

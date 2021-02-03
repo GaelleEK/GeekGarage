@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CenterRepository;
 use Doctrine\ORM\Mapping as ORM;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * @ORM\Entity(repositoryClass=CenterRepository::class)
@@ -30,7 +31,7 @@ class Center
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $adress;
+    private $address;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -66,14 +67,14 @@ class Center
         return $this;
     }
 
-    public function getAdress(): ?string
+    public function getAddress(): ?string
     {
-        return $this->adress;
+        return $this->address;
     }
 
-    public function setAdress(string $adress): self
+    public function setAddress(string $address): self
     {
-        $this->adress = $adress;
+        $this->address = $address;
 
         return $this;
     }
@@ -89,4 +90,8 @@ class Center
 
         return $this;
     }
+    public function __tostring() {
+        return $this->city;
+    }
+
 }
