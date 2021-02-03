@@ -18,12 +18,15 @@ class CenterFormType extends AbstractType
 
             ->add('address', textType::class, [
                 'label' => 'Adresse',
-                'attr' => ['class' => 'form-control'],
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => 'Ex: 19 rue de Praley'],
                 'label_attr' => ['class' => 'form-label mt-2']])
 
             ->add('city', textType::class, [
                 'label' => 'Ville',
-                'attr' => ['class' => 'form-control'],
+                'attr' => ['class' => 'form-control',
+                    'placeholder' => 'Ex: Vesoul'],
                 'label_attr' => ['class' => 'form-label mt-2']])
 
             ->add('lat', numberType::class, [

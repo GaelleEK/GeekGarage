@@ -37,7 +37,7 @@ class AdminController extends AbstractController
        {
            $em->persist($center);
            $em->flush();
-           return $this->redirectToRoute('home');
+           return $this->redirectToRoute('admin_home');
        }
 
        return $this->render('admin/create.html.twig', ['form'=> $form->createView()]);
@@ -55,7 +55,7 @@ class AdminController extends AbstractController
        if($form->isSubmitted() && $form->isValid())
        {
            $em->flush();
-           return $this->redirectToRoute('home');
+           return $this->redirectToRoute('admin_home');
        }
        return $this->render('admin/create.html.twig', ['form' => $form->createView()]);
    }
@@ -67,6 +67,6 @@ class AdminController extends AbstractController
    {
        $em->remove($center);
        $em->flush();
-       return $this->redirectToRoute('home');
+       return $this->redirectToRoute('admin_home');
    }
 }

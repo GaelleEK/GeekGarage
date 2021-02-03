@@ -20,6 +20,16 @@ L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
 let marker
 
 window.onload = () => {
+    //vois si lat et lon sont renseignés pour poser marqueur sur map
+    let lat = document.querySelector("#center_form_lat").value
+    let lon = document.querySelector("#center_form_lon").value
+
+    if(lat != undefined && lon != undefined){
+        marker = L.marker([lat, lon])
+        marker.addTo(mymap)
+    }
+    // ecoute d events :
+
     // mymap.on("click", mapClickListen)
     document.querySelector("#center_form_city").addEventListener("blur", getAddress)
 
@@ -57,14 +67,14 @@ window.onload = () => {
     }
 
     function getAddress(){
+
         //on fabrique l adresse
         let address = document.querySelector("#center_form_address").value +
-            ", " + document.querySelector("#center_form_city").value
-
-
+            " " + document.querySelector("#center_form_city").value
 
         //initialise une requete ajax
         const xmlhttp = new XMLHttpRequest
+
         xmlhttp.onreadystatechange = () => {
             //si la requete est terminée
             if(xmlhttp.readyState == 4){
@@ -72,7 +82,9 @@ window.onload = () => {
                 if(xmlhttp.status == 200){
                     //on récup la rép
                     let response = JSON.parse(xmlhttp.response)
-
+                    console.log(address)
+                    console.log(response)
+                    console.log(XMLHttpRequest)
                     let lat = response[0]['lat']
                     let lon = response[0]['lon']
                     document.querySelector("#center_form_lat").value = lat
@@ -80,6 +92,9 @@ window.onload = () => {
 
                     let pos = [lat, lon]
                     addMarker(pos)
+
+                    let contentPopup = response[0]['display_name']
+                    marker.bindPopup(contentPopup)
 
                 }
             }
