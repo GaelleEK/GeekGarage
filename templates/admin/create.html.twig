@@ -5,7 +5,7 @@
 {% block body %}
     {% include './block/_adminNavbar.html.twig' %}
 
-
+    {% set route = app.request.attributes.get('_route') %}
     <div class="container">
         <h2>Nouveau centre</h2>
 
@@ -19,13 +19,17 @@
 
             {{ form_row(form.lon) }}
 
-            {{ form_row(form.submit) }}
+        {% if route == 'admin_update' %}
+            {{ form_row(form.submit, {'label': 'Modifier'}) }}
+        {% else %}
+            {{ form_row(form.submit, {'label': 'Créer'}) }}
+        {% endif %}
 
         {{ form_end(form) }}
 
     </div>
 
-    {% include './block/_map.html.twig' %}
+    {% include './block/_map_admin.html.twig' %}
 
 {% endblock %}
 

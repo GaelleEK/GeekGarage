@@ -69,4 +69,5 @@ class AdminController extends AbstractController
        $em->flush();
        return $this->redirectToRoute('admin_home');
    }
+
 }

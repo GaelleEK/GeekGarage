@@ -40,7 +40,6 @@ class CenterFormType extends AbstractType
                 'label_attr' => ['class' => 'form-label mt-2']])
 
             ->add('submit', submitType::class, [
-                'label' => 'Créer',
                 'attr' => ['class' => 'btn btn-primary m-3']]);
     }
 
