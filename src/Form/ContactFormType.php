@@ -46,15 +46,15 @@ class ContactFormType extends AbstractType
 
             ->add('submit', submitType::class, [
                 'label' => 'Envoyer',
-                'attr' => ['class' => 'btn btn-primary m-3']])
+                'attr' => ['class' => 'btn btn-primary m-3']]);
 
-            ->add( 'city', EntityType::class, [
-            'class' => Center::class,
-            'label' => 'Centre de ',
-            'attr' => ['class' => 'form-select form-select-sm mb-2'],
-            'label_attr' => ['class' => 'form-label mt-2']
-        ]);
-    }
+//            ->add( 'city', TextType::class, [
+//            'data' => Center::getCity(),
+//            'label' => 'Centre de ',
+//            'attr' => ['class' => 'form-select form-select-sm mb-2'],
+////            'label_attr' => ['class' => 'form-label mt-2']
+//        ]);
+       }
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

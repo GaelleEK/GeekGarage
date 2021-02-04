@@ -73,17 +73,17 @@ class DefaultController extends AbstractController
                 ->subject('Demande de dépannage centre de '. $center->getCity())
                 ->htmlTemplate('emails/contact_depannage.html.twig')
                 ->context([
+
                     'first_name' => $form->get('first_name')->getData(),
                     'name' => $form->get('name')->getData(),
                     'tel' => $form->get('tel')->getData(),
                     'mail' => $form->get('mail')->getData(),
                     'message' => $form->get('message')->getData(),
                 ]);
-
             $mailer->send($email);
 
             // set de l entité contact pour entrer en bdd
-            $contact->setCenter($center->getId());
+            $contact->setCenter($center->getCity());
             $contact->setFirstName($form->get('first_name')->getData());
             $contact->setName($form->get('name')->getData());
             $contact->setMail($form->get('mail')->getData());

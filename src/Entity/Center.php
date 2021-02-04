@@ -3,8 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\CenterRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use JetBrains\PhpStorm\Pure;
 
 /**
  * @ORM\Entity(repositoryClass=CenterRepository::class)
@@ -37,6 +38,7 @@ class Center
      * @ORM\Column(type="string", length=255)
      */
     private $city;
+
 
     public function getId(): ?int
     {

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ContactRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -44,11 +46,8 @@ class Contact
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @ORM\ManyToOne(targetEntity="App\Entity\Center")
-     * @ORM\JoinColumn(name="center_id", referencedColumnName="id")
      */
-    private $center_id;
-
+    private $center = 0;
 
     /**
      * @return int|null
@@ -153,25 +152,19 @@ class Contact
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
+
     public function getCenter(): ?string
     {
-        return $this->center_id;
+        return $this->center;
     }
 
-    /**
-     * @param string $center
-     * @return $this
-     */
+
     public function setCenter(string $center): self
     {
-        $this->center_id = $center;
+        $this->center = $center;
 
         return $this;
     }
-
 
 
 }

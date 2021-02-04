@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Center;
 use App\Entity\Contact;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -17,6 +18,18 @@ class ContactRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Contact::class);
+    }
+
+    public function getAllWithCenterName(Center $center)
+    {
+        $qb = $this->createQueryBuilder()
+            ->select('contact', 'center')
+            ->innerJoin('contact.center_id')
+            ->andWhere('contact.center_id = :center')
+            ->setParameter('center', $center)
+            ->getQuery()
+            ->getResult();
+        return $qb;
     }
 
     // /**

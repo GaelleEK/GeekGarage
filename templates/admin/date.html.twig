@@ -1,0 +1,36 @@
+{%  extends './base.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+    {% include './block/_adminNavbar.html.twig' %}
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Centre</th>
+            <th>Nom</th>
+            <th>Contact</th>
+            <th>Message</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for contact in contacts %}
+
+            <tr>
+                <td>{{ contact.center }}</td>
+                <td>{{ contact.firstName }} {{ contact.name }}</td>
+                <td>{{ contact.tel }} / {{ contact.mail }}</td>
+                <td>{{ contact.message }}</td>
+                <td>
+                    <a href="{{ path('admin_date_delete', {id: contact.id}) }}" class="btn btn-danger">Supprimer</a>
+                </td>
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}
