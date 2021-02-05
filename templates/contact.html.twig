@@ -1,9 +1,12 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %} Contact centre de {{ center.city }} {% endblock %}
 
 {% block body %}
+
     {% include 'block/_navbar.html.twig' %}
     {% include 'block/_formContact.html.twig' %}
+    {% include 'block/_footer.html.twig' %}
 
 {% endblock %}

@@ -1,72 +1,120 @@
 
 
 html, body {
-    box-sizing: border-box;
-    overflow-x: hidden;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 div.header {
-    position: relative;
-    width: 100vw;
-    height: 90vh;
+  position: relative;
+  width: 100vw;
+  height: 90vh;
+}
+div.header p {
+  padding-left: 3px;
+  font-size: 2em;
+  line-height: 1.8rem;
 }
 .bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -3;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -3;
 }
 .bg-title {
-    width: 60%;
-    height: 70%;
-    max-width: 60%;
-    z-index: -1;
+  width: 100%;
+  height: 70%;
+  max-width: 100%;
+  z-index: -1;
 }
 .fas {
-    color: white;
-    z-index: -2;
-}
-
-div .d-flex .flex-column .p-5 .fs-2 {
-    font-family: Roboto, sans-serif;
+  color: white;
+  z-index: -2;
+  margin-top: 0.2rem;
 }
 
 #footer {
-    background: #1f2172;
-    overflow: hidden;
-    color: white;
+  background: #1f2172;
+  overflow: hidden;
+  color: white;
 }
+
 #map {
-    background: #5eb5e0;
-
+  background: #5eb5e0;
 }
 
-.key {
-padding-left: 300px;
-}
 
 #mapid{
-    height: 450px;
-    width: 450px;
+  height: 450px;
+  width: 450px;
+  margin-top: 20px;
 }
 
 .logoGeekGarage {
-    width: 45%;
-    position: relative;
-    left: 100px
+  width: 45%;
+  position: relative;
+  left: 100px
 
 }
 
 .logoOnline {
-    width: 20%;
-    position: relative;
-    top: 70px;
-    left: 73px;
+  width: 20%;
+  position: relative;
+  top: 70px;
+  left: 73px;
 
 }
 .textLogos {
-    position: relative;
-    top: 195px;
-    left: 65px;
+  position: relative;
+  top: 195px;
+  left: 65px;
+}
 
+/*desktop*/
+@media screen and (min-width: 1024px) {
+
+
+}
+
+/*tablet*/
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  #key {
+    display: none;
+  }
+  #mapid {
+    width: 250px;
+    height: 250px;
+    margin: 20px auto;
+}
+
+/*smartphone*/
+@media screen and (max-width: 768px) {
+  .bg-title {
+    width: 100%;
+    height: 70%;
+    max-width: 100%;
+    z-index: -1;
+  }
+  div.header p {
+    font-size: 0.9rem;
+    line-height: 0.5rem;
+  }
+
+  #mapid {
+    width: 200px;
+    height: 250px;
+    margin: 20px auto;
+  }
+  #map h2 {
+    font-size: 1.2rem;
+  }
+  #key {
+    display: none;
+  }
+
+  .logoGeekGarage {
+    width: 100%;
+    left: 20px
+
+  }
 }

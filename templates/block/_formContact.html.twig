@@ -12,14 +12,14 @@
 {#                    <h3 class="text-center p-5 text-uppercase text-white">Contactez-nous</h3>#}
 {#                {% endif %}#}
 
-                <ul class="list-group-item">
-                    <li class="row">{{ form_row(form.first_name) }}</li>
-                    <li class="row">{{ form_row(form.name) }}</li>
-                    <li class="row">{{ form_row(form.tel) }}</li>
-                    <li class="row">{{ form_row(form.mail) }}</li>
-                    <li class="row">{{ form_row(form.message) }}</li>
-                    <li class="d-flex justify-content-end">{{ form_row(form.submit) }}</li>
-                </ul>
+
+                    {{ form_row(form.first_name) }}
+                    {{ form_row(form.name) }}
+                    {{ form_row(form.tel) }}
+                    {{ form_row(form.mail) }}
+                    {{ form_row(form.message) }}
+                    <div class="d-flex justify-content-end">{{ form_row(form.submit) }}</div>
+
                 {{ form_widget(form._token) }}
 {#                {% if route == 'home_contact' %}#}
 {#                    {{ form_end(form, {'render_rest': false}) }}#}
