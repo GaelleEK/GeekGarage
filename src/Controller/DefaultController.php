@@ -25,9 +25,14 @@ class DefaultController extends AbstractController
      */
     public function index(CenterRepository $centerRepository, EntityManagerInterface $em): Response
     {
+        $qb = $em->createQueryBuilder();
+        $qb->select('count(contact.id)');
+        $qb->from('App\Entity\Contact','contact');
+        $count = $qb->getQuery()->getSingleScalarResult();
 
         return $this->render('home.html.twig', [
-            'centers'=> $centerRepository->findAll()
+            'centers'=> $centerRepository->findAll(),
+            'count' => $count
         ]);
     }
 
@@ -92,7 +97,7 @@ class DefaultController extends AbstractController
             $em->persist($contact);
             $em->flush();
 
-            $this->addFlash('message: ', 'mail envoyé');
+            $this->addFlash('success', 'mail envoyé');
             return $this->redirectToRoute('home');
 
         }

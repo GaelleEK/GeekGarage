@@ -1,12 +1,15 @@
 {%  block map %}
-<section class="d-flex" id="map">
-    <div class="flex-column">
-        <p class="fs-3 my-4 ps-2">Trouver le centre le plus proche</p>
-    </div>
-    <div class="flex-column">
-        <div class="rounded m-4" id="mapid"></div>
-    </div>
-    <div class="key">
+<section class="container-fluid" id="map">
+    <div class="row">
+        <div class="col">
+            <p class="fs-3 my-4 ps-2">Trouver le centre le plus proche</p>
+        </div>
+        <div class="col my-auto">
+            <div class="rounded m-4" id="mapid"></div>
+        </div>
+        <div class="col">
+            <img class="key" src="{{ asset('img/keys.png') }}">
+        </div>
     </div>
 </section>
 {% endblock %}
